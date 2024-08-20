@@ -1,0 +1,25 @@
+user:
+  name: "John Doe"
+  email: "johndoe@example.com"
+  roles:
+    - admin
+    - editor
+    - viewer
+
+settings:
+  theme: "dark"
+  notifications: true
+  language: "en-US"
+
+databases:
+  - name: "primary_db"
+    host: "localhost"
+    port: 5432
+    username: "db_user"
+    password: "securepassword"
+
+  - name: "backup_db"
+    host: "localhost"
+    port: 5433
+    username: "backup_user"
+    password: "securepassword"
