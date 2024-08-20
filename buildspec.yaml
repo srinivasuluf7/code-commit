@@ -1,0 +1,43 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - npm install   # or another dependency management command
+
+  pre_build:
+    commands:
+      - echo Running pre-build scripts...
+      - npm test      # run tests before the build
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - npm run build # or another build command like 'make build'
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Preparing artifacts...
+
+artifacts:
+  files:
+    - '**/*'         # include all files from the build directory
+  discard-paths: yes  # if you want to flatten the directory structure
+
+cache:
+  paths:
+    - 'node_modules/**/*'  # cache dependencies to speed up future builds
+
+env:
+  variables:
+    ENV_VAR_NAME: "value" # environment variables can be defined here
+
+reports:
+  report-group-name:
+    files:
+      - 'test-results.xml'
+    base-directory: 'test-results'
+
+timeout: 15 # timeout in minutes for the build
